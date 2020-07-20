@@ -1,11 +1,34 @@
 import React from "react";
 
-export interface IContextDefaultValue {
+export enum ActionTypes {
+  INCREMENT,
+  DECREMENT,
+}
+
+export interface IAction {
+  type: ActionTypes;
+}
+
+export interface IState {
   counter: number;
 }
 
-export const defaultValue: IContextDefaultValue = { counter: 0 };
+export interface IDispatch {
+  (action: IAction): void;
+}
 
-const CounterContext = React.createContext();
+export interface IContextDefaultValue {
+  state: IState;
+  dispatch: IDispatch;
+}
+
+export const defaultValue: IContextDefaultValue = {
+  state: { counter: 0 },
+  dispatch: () => ({
+    counter: 0,
+  }),
+};
+
+const CounterContext = React.createContext(defaultValue);
 
 export default CounterContext;

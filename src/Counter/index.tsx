@@ -1,7 +1,11 @@
 import React from "react";
 
-export const Counter = ({ count = 0 }) => {
-  return <span>Valor: {count}</span>;
+import useCounter from "../CounterContext/useCounter";
+
+export const Counter = () => {
+  const { state } = useCounter();
+
+  return <span>Valor: {state.counter}</span>;
 };
 
 export default Counter;

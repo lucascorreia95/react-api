@@ -1,19 +1,14 @@
 import React, { FC, useReducer } from "react";
-import CounterContext, { IContextDefaultValue, defaultValue } from "./Context";
+import CounterContext, { IState, IAction, ActionTypes } from "./Context";
 
-interface IAction {
-  type: string;
-}
+const defaultValue: IState = { counter: 0 };
 
 export const Provider: FC = ({ children }) => {
-  function reducer(
-    state: IContextDefaultValue,
-    action: IAction
-  ): IContextDefaultValue {
+  function reducer(state: IState, action: IAction): IState {
     switch (action.type) {
-      case "increment":
+      case ActionTypes.INCREMENT:
         return { counter: state.counter + 1 };
-      case "decrement":
+      case ActionTypes.DECREMENT:
         return { counter: state.counter - 1 };
       default:
         return state;

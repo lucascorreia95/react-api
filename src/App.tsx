@@ -1,14 +1,18 @@
 import React from "react";
 
+import CounterContext from "./CounterContext/Provider";
+
 import Counter from "./Counter";
 import Controls from "./Controls";
 
 function App() {
   return (
-    <div className="App">
-      <Counter />
-      <Controls />
-    </div>
+    <CounterContext>
+      <div className="App">
+        <Counter />
+        <Controls />
+      </div>
+    </CounterContext>
   );
 }
 

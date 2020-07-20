@@ -3,4 +3,4 @@ import Context from "./Context";
 
 export const useCounter = () => useContext(Context);
 
-export default useContext;
+export default useCounter;

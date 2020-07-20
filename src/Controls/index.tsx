@@ -1,10 +1,25 @@
 import React from "react";
 
-export const Controls = ({ increment = () => {}, decrement = () => {} }) => {
+import useCounter from "../CounterContext/useCounter";
+import { ActionTypes } from "../CounterContext/Context";
+
+export const Controls = () => {
+  const { dispatch } = useCounter();
+
+  const handleControl = (type: ActionTypes) => {
+    dispatch({
+      type: type,
+    });
+  };
+
   return (
     <div>
-      <button onClick={increment}>Incrementar</button>
-      <button onClick={decrement}>Decrementar</button>
+      <button onClick={() => handleControl(ActionTypes.INCREMENT)}>
+        Incrementar
+      </button>
+      <button onClick={() => handleControl(ActionTypes.DECREMENT)}>
+        Decrementar
+      </button>
     </div>
   );
 };
