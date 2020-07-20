@@ -1,5 +1,7 @@
 import React, { FC, useReducer } from "react";
-import CounterContext, { IState, IAction, ActionTypes } from "./Context";
+
+import { IState, IAction, ActionTypes } from "./types";
+import CounterContext from "./Context";
 
 const defaultValue: IState = { counter: 0 };
 

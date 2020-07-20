@@ -1,7 +1,7 @@
 import React from "react";
 
 import useCounter from "../CounterContext/useCounter";
-import { ActionTypes } from "../CounterContext/Context";
+import { ActionTypes } from "../CounterContext/types";
 
 export const Controls = () => {
   const { dispatch } = useCounter();
