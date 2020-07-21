@@ -1,54 +1,13 @@
-import React, { useEffect, useState, useCallback, useMemo, memo } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
-type Item = {
-  id: number;
-  title: string;
-  body: string;
-};
-
-type ListPostsProps = {
-  list: Item[];
-  filter: string;
-};
-
-const filterListByTitle = (list: Item[], filter: string): Item[] => {
-  console.log("Filter list by title function!");
-  return list.filter(({ title }) => title.includes(filter.toLowerCase()));
-};
-
-const ListPosts: React.FC<ListPostsProps> = ({ list, filter }) => {
-  console.log("List posts component");
-
-  //useMemo to memorize the return of function, execute only when the dependencies change
-  const filteredList = useMemo(() => filterListByTitle(list, filter), [
-    filter,
-    list,
-  ]);
-
-  return (
-    <ul>
-      {filteredList.map((item) => (
-        <li key={item.id}>
-          <h3>{item.title}</h3>
-          <p>{item.body}</p>
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const MemoComponent = memo(() => {
-  console.log("Memo Component render!");
-
-  return <h3>Memo Component!</h3>;
-});
+import { Item } from "./types";
+import ListPosts from "./ListPosts";
+import MemoComponent from "./Memo";
 
 export const Filter = () => {
   const [inputValue, setInputValue] = useState("");
   const [list, setList] = useState<Item[]>([]);
   const [count, setCount] = useState(0);
-
-  console.log("Filter component");
 
   // useCallback to memorize the function reference
   const getDataFromApi = useCallback(async () => {
