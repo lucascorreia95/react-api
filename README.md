@@ -1,3 +1,21 @@
+# react-api
+
+An simple project to learn about React hooks and API.
+
+### Description
+
+To learn and practice, I created some issues case and try to resolve then with React hooks and APIs.
+
+##### useCallback: To memorize the reference of the function and do not create a infinite loop.
+
+##### useMemo: To memorize the result of function and with that prevent unnecessary execution.
+
+##### useReducer: To handle the state with a more specific and flexibility way.
+
+##### memo: To memorize the entire component and prevent unnecessary re-renders.
+
+##### context API: To share state without pass properties of father to soon components.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
