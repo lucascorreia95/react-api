@@ -1,18 +1,23 @@
 import React from "react";
 
 import CounterContext from "./CounterContext/Provider";
-
 import Counter from "./Counter";
 import Controls from "./Controls";
 
+import Filter from "./Filter";
+
 function App() {
   return (
-    <CounterContext>
-      <div className="App">
+    <div className="App">
+      <CounterContext>
         <Counter />
         <Controls />
-      </div>
-    </CounterContext>
+      </CounterContext>
+
+      <hr />
+
+      <Filter />
+    </div>
   );
 }
 
